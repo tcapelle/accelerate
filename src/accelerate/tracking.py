@@ -261,10 +261,10 @@ class WandBTracker(GeneralTracker):
     name = "wandb"
     requires_logging_directory = False
 
-    def __init__(self, run_name: str, **kwargs):
-        self.run_name = run_name
-        self.run = wandb.init(project=self.run_name, **kwargs)
-        logger.debug(f"Initialized WandB project {self.run_name}")
+    def __init__(self, project_name: str, **kwargs):
+        self.project_name = project_name
+        self.run = wandb.init(project=self.project_name, **kwargs)
+        logger.debug(f"Initialized WandB project {self.project_name}")
         logger.debug(
             "Make sure to log any initial configurations with `self.store_init_configuration` before training!"
         )
